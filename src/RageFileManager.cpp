@@ -280,16 +280,20 @@ static void ChangeToDirOfExecutable( const RString &argv0 )
 	/* Set the CWD.  Any effects of this is platform-specific; most files are read and
 	 * written through RageFile.  See also RageFileManager::RageFileManager. */
 #if defined(_WINDOWS)
-	chdir( RageFileManagerUtil::sDirOfExecutable + "/.." );
+	if( _chdir( RageFileManagerUtil::sDirOfExecutable + "/.." ) )
 #elif defined(UNIX)
-	chdir( RageFileManagerUtil::sDirOfExecutable + "/" );
+	if( chdir( RageFileManagerUtil::sDirOfExecutable + "/" ) )
 #elif defined(MACOSX)
 	/* If the basename is not MacOS, then we've likely been launched via the command line
 	 * through a symlink. Assume this is the case and change to the dir of the symlink. */
 	if( Basename(RageFileManagerUtil::sDirOfExecutable) == "MacOS" )
 		CollapsePath( RageFileManagerUtil::sDirOfExecutable += "/../../../" );
-	chdir( RageFileManagerUtil::sDirOfExecutable );
+	if( chdir( RageFileManagerUtil::sDirOfExecutable ) )
 #endif
+	{
+		LOG->Warn("Can't set current working directory to %s", RageFileManagerUtil::sDirOfExecutable.c_str());
+		return;
+	}
 }
 
 RageFileManager::RageFileManager( const RString &argv0 )
@@ -410,11 +414,12 @@ void RageFileManager::GetDirListing( const RString &sPath_, vector<RString> &Add
 		/* If returning the path, prepend the mountpoint name to the files this driver returned. */
 		if( bReturnPathToo && pLoadedDriver->m_sMountPoint.size() > 0 )
 		{
+			RString const &mountPoint = pLoadedDriver->m_sMountPoint;
+			/* Skip the trailing slash on the mountpoint; there's already a slash there. */
+			RString const &trimPoint = mountPoint.substr(0, mountPoint.size() - 1);
 			for( unsigned j = OldStart; j < AddTo.size(); ++j )
 			{
-				/* Skip the trailing slash on the mountpoint; there's already a slash there. */
-				RString &lPath = AddTo[j];
-				lPath.insert( 0, pLoadedDriver->m_sMountPoint, pLoadedDriver->m_sMountPoint.size()-1 );
+				AddTo[j] = trimPoint + AddTo[j];
 			}
 		}
 	}

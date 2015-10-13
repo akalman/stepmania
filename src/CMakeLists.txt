@@ -153,13 +153,8 @@ list(APPEND SM_WINDOWS_PROGRAM_DLLS
   "${SM_PROGRAM_DIR}/avcodec-55.dll"
   "${SM_PROGRAM_DIR}/avformat-55.dll"
   "${SM_PROGRAM_DIR}/avutil-52.dll"
-  "${SM_PROGRAM_DIR}/msvcp100.dll"
-  "${SM_PROGRAM_DIR}/msvcp110.dll"
-  "${SM_PROGRAM_DIR}/msvcr100.dll"
-  "${SM_PROGRAM_DIR}/msvcr110.dll"
   "${SM_PROGRAM_DIR}/parallel_lights_io.dll"
   "${SM_PROGRAM_DIR}/swscale-2.dll"
-  "${SM_PROGRAM_DIR}/vccorlib110.dll"
   "${SM_PROGRAM_DIR}/zlib1.dll"
 )
 
@@ -285,6 +280,11 @@ else() # Linux
       sm_add_compile_definition("${SM_EXE_NAME}" BACKTRACE_METHOD_X86_LINUX)
       sm_add_compile_definition("${SM_EXE_NAME}" BACKTRACE_METHOD_TEXT="x86 custom backtrace")
       sm_add_compile_definition("${SM_EXE_NAME}" BACKTRACE_LOOKUP_METHOD_TEXT="backtrace_symbols")
+      if (${DL_FOUND})
+        sm_add_compile_definition("${SM_EXE_NAME}" BACKTRACE_LOOKUP_METHOD_DLADDR)
+      else()
+        sm_add_compile_definition("${SM_EXE_NAME}" BACKTRACE_LOOKUP_METHOD_BACKTRACE_SYMBOLS)
+      endif()
     endif()
   endif()
   if (${HAS_PTHREAD})
@@ -445,9 +445,9 @@ else() # Unix / Linux
     endif()
   endif()
 
-  list(APPEND SMDATA_LINK_LIB
-    "${DL_LIBRARY}"
-  )
+  if (${DL_FOUND})
+    list(APPEND SMDATA_LINK_LIB ${DL_LIBRARIES})
+  endif()
 
   if(HAS_OGG)
     list(APPEND SMDATA_LINK_LIB
@@ -562,11 +562,15 @@ if(NOT APPLE)
     if (PCRE_FOUND)
       list(APPEND SM_INCLUDE_DIRS "${PCRE_INCLUDE_DIR}")
     endif()
+    if (DL_FOUND)
+      list(APPEND SM_INCLUDE_DIRS "${DL_INCLUDE_DIR}")
+    endif()
   endif()
 else()
   if(WITH_OGG)
     list(APPEND SM_INCLUDE_DIRS
-      "${SM_EXTERN_DIR}/vorbis"
+      "${SM_EXTERN_DIR}/newogg/include"
+      "${SM_EXTERN_DIR}/newvorbis/include"
     )
   endif()
   list(APPEND SM_INCLUDE_DIRS
@@ -608,13 +612,8 @@ if(NOT APPLE)
     install(FILES "${SM_PROGRAM_DIR}/avcodec-55.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
     install(FILES "${SM_PROGRAM_DIR}/avformat-55.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
     install(FILES "${SM_PROGRAM_DIR}/avutil-52.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
-    install(FILES "${SM_PROGRAM_DIR}/msvcp100.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
-    install(FILES "${SM_PROGRAM_DIR}/msvcp110.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
-    install(FILES "${SM_PROGRAM_DIR}/msvcr100.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
-    install(FILES "${SM_PROGRAM_DIR}/msvcr110.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
     install(FILES "${SM_PROGRAM_DIR}/parallel_lights_io.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
     install(FILES "${SM_PROGRAM_DIR}/swscale-2.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
-    install(FILES "${SM_PROGRAM_DIR}/vccorlib110.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
     install(FILES "${SM_PROGRAM_DIR}/zlib1.dll" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
     install(FILES "${SM_PROGRAM_DIR}/StepMania.vdi" DESTINATION "${SM_FULL_INSTALLATION_PATH}")
 
