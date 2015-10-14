@@ -57,6 +57,7 @@ const RString MEM_CARD_MOUNT_POINT[NUM_PLAYERS] =
 	// @ is important; see RageFileManager LoadedDriver::GetPath
 	"/@mc1/",
 	"/@mc2/",
+	"/@mc3/",
 };
 
 static const RString MEM_CARD_MOUNT_POINT_INTERNAL[NUM_PLAYERS] =
@@ -64,6 +65,7 @@ static const RString MEM_CARD_MOUNT_POINT_INTERNAL[NUM_PLAYERS] =
 	// @ is important; see RageFileManager LoadedDriver::GetPath
 	"/@mc1int/",
 	"/@mc2int/",
+	"/@mc3int/",
 };
 
 // Only access the memory card driver in a timeout-safe thread.
