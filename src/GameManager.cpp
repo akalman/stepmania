@@ -162,8 +162,15 @@ static const Style g_Style_Dance_Single =
 			{ TRACK_3,	+DANCE_COL_SPACING*0.5f, NULL },
 			{ TRACK_4,	+DANCE_COL_SPACING*1.5f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_2,	-DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_3,	+DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_4,	+DANCE_COL_SPACING*1.5f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
+		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 0, 3, 2, 1, Style::END_MAPPING }
 	},
@@ -197,8 +204,15 @@ static const Style g_Style_Dance_Versus =
 			{ TRACK_3,	+DANCE_COL_SPACING*0.5f, NULL },
 			{ TRACK_4,	+DANCE_COL_SPACING*1.5f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_2,	-DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_3,	+DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_4,	+DANCE_COL_SPACING*1.5f, NULL },
+		},
 	},
 	{
+		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 0, 3, 2, 1, Style::END_MAPPING }
 	},
@@ -240,9 +254,20 @@ static const Style g_Style_Dance_Double =
 			{ TRACK_7,	+DANCE_COL_SPACING*2.5f, NULL },
 			{ TRACK_8,	+DANCE_COL_SPACING*3.5f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*3.5f, NULL },
+			{ TRACK_2,	-DANCE_COL_SPACING*2.5f, NULL },
+			{ TRACK_3,	-DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_4,	-DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_5,	+DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_6,	+DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_7,	+DANCE_COL_SPACING*2.5f, NULL },
+			{ TRACK_8,	+DANCE_COL_SPACING*3.5f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
 		{ 0, 3, 2, 1, Style::END_MAPPING },
+		{ 4, 7, 6, 5, Style::END_MAPPING },
 		{ 4, 7, 6, 5, Style::END_MAPPING }
 	},
 	{	// m_iColumnDrawOrder[MAX_COLS_PER_PLAYER];
@@ -275,8 +300,15 @@ static const Style g_Style_Dance_Couple =
 			{ TRACK_7,	+DANCE_COL_SPACING*0.5f, NULL },
 			{ TRACK_8,	+DANCE_COL_SPACING*1.5f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_9 ,	-DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_10,	-DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_11,	+DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_12,	+DANCE_COL_SPACING*1.5f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
+		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 0, 3, 2, 1, Style::END_MAPPING }
 	},
@@ -314,8 +346,17 @@ static const Style g_Style_Dance_Solo =
 			{ TRACK_5,	+DANCE_COL_SPACING*1.5f, NULL },
 			{ TRACK_6,	+DANCE_COL_SPACING*2.5f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*2.5f, NULL },
+			{ TRACK_2,	-DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_3,	-DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_4,	+DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_5,	+DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_6,	+DANCE_COL_SPACING*2.5f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
+		{ 0, 5, 3, 2, 1, 4, Style::END_MAPPING },
 		{ 0, 5, 3, 2, 1, 4, Style::END_MAPPING },
 		{ 0, 5, 3, 2, 1, 4, Style::END_MAPPING }
 	},
@@ -357,10 +398,21 @@ static const Style g_Style_Dance_Couple_Edit =
 			{ TRACK_7,	+DANCE_COL_SPACING*3.f, NULL },
 			{ TRACK_8,	+DANCE_COL_SPACING*4.f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*4.f, NULL },
+			{ TRACK_2,	-DANCE_COL_SPACING*3.f, NULL },
+			{ TRACK_3,	-DANCE_COL_SPACING*2.f, NULL },
+			{ TRACK_4,	-DANCE_COL_SPACING*1.f, NULL },
+			{ TRACK_5,	+DANCE_COL_SPACING*1.f, NULL },
+			{ TRACK_6,	+DANCE_COL_SPACING*2.f, NULL },
+			{ TRACK_7,	+DANCE_COL_SPACING*3.f, NULL },
+			{ TRACK_8,	+DANCE_COL_SPACING*4.f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
 		{ 0, 3, 2, 1, Style::END_MAPPING },
 		{ 4, 7, 6, 5, Style::END_MAPPING },
+		{ 4, 7, 6, 5, Style::END_MAPPING }, // I dunno, you get player 2's I guess
 	},
 	{	// m_iColumnDrawOrder[MAX_COLS_PER_PLAYER];
 		0,1,2,3,4,5,6,7
@@ -390,9 +442,15 @@ static const Style g_Style_Dance_ThreePanel =
 			{ TRACK_2,	+DANCE_COL_SPACING*0.0f, NULL },
 			{ TRACK_3,	+DANCE_COL_SPACING*1.0f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*1.0f, NULL },
+			{ TRACK_2,	+DANCE_COL_SPACING*0.0f, NULL },
+			{ TRACK_3,	+DANCE_COL_SPACING*1.0f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
 		// 4 3 5
+		{ 0, 2, Style::NO_MAPPING, 1, 0, 2, Style::END_MAPPING },
 		{ 0, 2, Style::NO_MAPPING, 1, 0, 2, Style::END_MAPPING },
 		{ 0, 2, Style::NO_MAPPING, 1, 0, 2, Style::END_MAPPING }
 	},
@@ -471,10 +529,21 @@ static const Style g_Style_Dance_Routine =
 			{ TRACK_7,	+DANCE_COL_SPACING*2.5f, NULL },
 			{ TRACK_8,	+DANCE_COL_SPACING*3.5f, NULL },
 		},
+		{	// PLAYER_3
+			{ TRACK_1,	-DANCE_COL_SPACING*3.5f, NULL },
+			{ TRACK_2,	-DANCE_COL_SPACING*2.5f, NULL },
+			{ TRACK_3,	-DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_4,	-DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_5,	+DANCE_COL_SPACING*0.5f, NULL },
+			{ TRACK_6,	+DANCE_COL_SPACING*1.5f, NULL },
+			{ TRACK_7,	+DANCE_COL_SPACING*2.5f, NULL },
+			{ TRACK_8,	+DANCE_COL_SPACING*3.5f, NULL },
+		},
 	},
 	{	// m_iInputColumn[NUM_GameController][NUM_GameButton]
 		{ 0, 3, 2, 1, Style::END_MAPPING },
-		{ 4, 7, 6, 5, Style::END_MAPPING }
+		{ 4, 7, 6, 5, Style::END_MAPPING },
+		{ 4, 7, 6, 5, Style::END_MAPPING }  // I dunno
 	},
 	{	// m_iColumnDrawOrder[MAX_COLS_PER_PLAYER];
 		0,1,2,3,4,5,6,7
