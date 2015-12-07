@@ -1508,7 +1508,10 @@ const Style* GameState::GetCurrentStyle(PlayerNumber pn) const
 	{
 		if(pn >= NUM_PLAYERS)
 		{
-			return m_SeparatedStyles[PLAYER_1] == NULL ? m_SeparatedStyles[PLAYER_2]
+			return m_SeparatedStyles[PLAYER_1] == NULL
+				? m_SeparatedStyles[PLAYER_2] == NULL
+					? m_SeparatedStyles[PLAYER_3]
+					: m_SeparatedStyles[PLAYER_2]
 				: m_SeparatedStyles[PLAYER_1];
 		}
 		return m_SeparatedStyles[pn];
@@ -1633,6 +1636,7 @@ bool GameState::IsHumanPlayer( PlayerNumber pn ) const
 					return true;
 				case StyleType_OnePlayerOneSide:
 				case StyleType_OnePlayerTwoSides:
+				case StyleType_ThreePlayer:
 					return pn == this->GetMasterPlayerNumber();
 				default:
 					FAIL_M(ssprintf("Invalid style type: %i", type));
