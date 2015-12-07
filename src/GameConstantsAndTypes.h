@@ -557,6 +557,7 @@ enum StyleType
 	StyleType_TwoPlayersTwoSides,		/**< Versus style */
 	StyleType_OnePlayerTwoSides,		/**< Double style */
 	StyleType_TwoPlayersSharedSides,	/**< Routine style */
+	StyleType_ThreePlayer,	/**< 3p style */
 	NUM_StyleType,
 	StyleType_Invalid
 };

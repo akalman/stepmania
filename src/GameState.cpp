@@ -1652,6 +1652,7 @@ bool GameState::IsHumanPlayer( PlayerNumber pn ) const
 		return true;
 	case StyleType_OnePlayerOneSide:
 	case StyleType_OnePlayerTwoSides:
+	case StyleType_ThreePlayer:
 		return pn == this->GetMasterPlayerNumber();
 	default:
 		FAIL_M(ssprintf("Invalid style type: %i", type));
