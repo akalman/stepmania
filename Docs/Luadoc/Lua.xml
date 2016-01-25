@@ -2396,6 +2396,7 @@
 		<Enum name='PlayerNumber'>
 			<EnumValue name='&apos;PlayerNumber_P1&apos;' value='0'/>
 			<EnumValue name='&apos;PlayerNumber_P2&apos;' value='1'/>
+			<EnumValue name='&apos;PlayerNumber_P3&apos;' value='2'/>
 		</Enum>
 		<Enum name='Premium'>
 			<EnumValue name='&apos;Premium_Off&apos;' value='0'/>
@@ -2675,7 +2676,7 @@
 	</Enums>
 	<Constants>
 		<Constant name='ASPECT_SCALE_FACTOR' value='854'/>
-		<Constant name='NUM_PLAYERS' value='2'/>
+		<Constant name='NUM_PLAYERS' value='3'/>
 		<Constant name='SAFE_HEIGHT' value='36'/>
 		<Constant name='SAFE_WIDTH' value='64'/>
 		<Constant name='SCREEN_BOTTOM' value='480'/>
@@ -2688,6 +2689,7 @@
 		<Constant name='SCREEN_WIDTH' value='854'/>
 		<Constant name='PLAYER_1' value='&apos;PlayerNumber_P1&apos;'/>
 		<Constant name='PLAYER_2' value='&apos;PlayerNumber_P2&apos;'/>
+		<Constant name='PLAYER_3' value='&apos;PlayerNumber_P3&apos;'/>
 		<Constant name='_VERSION' value='&apos;Lua 5.1&apos;'/>
 		<Constant name='bottom' value='&apos;VertAlign_Bottom&apos;'/>
 		<Constant name='center' value='&apos;HorizAlign_Center&apos;'/>

@@ -371,8 +371,10 @@ function ArbitrarySpeedMods()
 			-- The first values display the current status of the speed mod.
 			if pn == PLAYER_1 or self.NumPlayers == 1 then
 				list[1]= true
+			elseif pn == PLAYER_2 then
+				list[2] = true
 			else
-				list[2]= true
+				list[3] = true
 			end
 		end,
 		SaveSelections= function(self, list, pn)
@@ -442,7 +444,7 @@ function ArbitrarySpeedMods()
 				"+" .. big_inc, "+" .. small_inc, "-" .. small_inc, "-" .. big_inc,
 				"Xmod", "Cmod", "Mmod"}
 			-- Insert the status element for P2 first so it will be second
-			for i, pn in ipairs({PLAYER_2, PLAYER_1}) do
+			for i, pn in ipairs({PLAYER_3, PLAYER_2, PLAYER_1}) do
 				local val= self.CurValues[pn]
 				if val then
 					if val.mode == "x" then
