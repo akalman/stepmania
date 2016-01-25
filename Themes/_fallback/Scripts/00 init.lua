@@ -20,8 +20,9 @@ end
 
 PLAYER_1 = "PlayerNumber_P1"
 PLAYER_2 = "PlayerNumber_P2"
+PLAYER_3 = "PlayerNumber_P3"
 NUM_PLAYERS = #PlayerNumber
-OtherPlayer = { [PLAYER_1] = PLAYER_2, [PLAYER_2] = PLAYER_1 }
+OtherPlayer = { [PLAYER_1] = PLAYER_2, [PLAYER_2] = PLAYER_1, [PLAYER_3] = PLAYER_3 }
 
 function string:find_last(text)
 	local LastPos = 0
